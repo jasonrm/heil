@@ -1,16 +1,18 @@
-# Heil - RabbitMQ auth via OAuth2 Proxy
+# Heil - RabbitMQ Authentication via OAuth2 Proxy
 
 ## Requirements
 
 * [https://github.com/bitly/oauth2_proxy](oauth2_proxy)
 * [rabbitmq-auth-backend-http](https://github.com/rabbitmq/rabbitmq-auth-backend-http)
 
-| Request Path      | Response Status Code | Body                                      |
-|-------------------|----------------------|-------------------------------------------|
-| /auth/user        | 200                  | `allow administrator` if password matches |
-| /auth/vhost       | 200                  | `allow`                                   |
-| /auth/resource    | 200                  | `allow`                                   |
-| _everything else_ | 403                  | _empty_                                   |
+## Behavior
+
+| Request Path      | Response Status Code | Body                  | Condition            |
+|-------------------|----------------------|-----------------------|----------------------|
+| /auth/user        | 200                  | `allow administrator` | if password matches  |
+| /auth/vhost       | 200                  | `allow`               | always               |
+| /auth/resource    | 200                  | `allow`               | always               |
+| _everything else_ | 403                  | _empty_               | always               |
 
 ## Usage
 
