@@ -54,7 +54,7 @@ func handleVirtualHost(w http.ResponseWriter, r *http.Request) {
     ip := r.FormValue("ip")
 
     body := "deny"
-    if (len(username) > 0 && len(vhost) > 0 && len(ip) > 0) {
+    if (len(username) > 0 && len(vhost) > 0) {
         body = "allow"
     }
 
